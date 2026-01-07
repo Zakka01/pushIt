@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:05:56 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/07 19:35:45 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:23:18 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,8 @@ void index_nodes(n_list **a_stack, int size)
 
 void chunks_algo(n_list **a_stack, n_list **b_stack, int size)
 {
+    n_list  *current = *b_stack;
+
+    current->data = 2;
     index_nodes(a_stack, size);
 }

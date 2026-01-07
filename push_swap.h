@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:01:09 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/06 17:41:53 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:44:29 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void    rev_rotate_both(n_list  **a_stack, n_list   **b_stack);
 // implemetation
 void    handle_list_size(n_list **a_stack, n_list **b_stack);
 int     is_sorted(n_list    **a_stack);
+
+// sorting algo
+void chunks_algo(n_list **a_stack, n_list **b_stack, int size);
 
 
 

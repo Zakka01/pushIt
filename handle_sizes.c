@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:03:51 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/07 17:41:33 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:24:21 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void handle_list_size(n_list **a_stack, n_list **b_stack)
         size_of_three(a_stack);
     else if ((size == 4 || size == 5) && !is_sorted(a_stack))
         size_of_f(a_stack, b_stack, size);
-    // else if (size > 5)
-    //     chunks_algo(a_stack, b_stack, size);
+    else if (size > 5 && !is_sorted(a_stack))
+        chunks_algo(a_stack, b_stack, size);
 }
