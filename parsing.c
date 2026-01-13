@@ -6,13 +6,12 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:06:06 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/13 19:17:03 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:47:40 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// add new node
 n_list *add_new_node(int content)
 {
     n_list *new_node;

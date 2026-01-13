@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:06:59 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/12 22:10:31 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:44:18 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,31 +73,31 @@ void push_max_to_a(n_list **a_stack, n_list **b_stack)
 
 void chunks_sort(n_list **a_stack, n_list **b_stack, int size)
 {
-    int low;
-    int high;
+    int min;
+    int max;
     int index;
 
     index_nodes(a_stack, size);
-    low = 0;
-    high = size * 0.05 + 10;
+    min = 0;
+    max = size * 0.05 + 10;
     while (*a_stack)
     {
         index = (*a_stack)->index;
-        if (index < low)
+        if (index < min)
         {
             push(a_stack, b_stack, 'b');
             rotate(b_stack, 'b');
-            low++;
-            high++;
+            min++;
+            max++;
         }
-        else if (index >= low && index < high)
+        else if (index >= min && index < max)
         {
             push(a_stack, b_stack, 'b');
-            low++;
-            if (high < size)
-                high++;
+            min++;
+            if (max < size)
+                max++;
         }
-        else if (index >= high)
+        else if (index >= max)
             rotate(a_stack, 'a');
     }
     push_max_to_a(a_stack, b_stack);

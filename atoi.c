@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:03:37 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/13 18:35:55 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:47:55 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int ft_isdigit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-// handle the overflow - if the res exceeded the range
 static int ov_check(unsigned long res, int digit, int sign)
 {
 	if (sign == 1)
@@ -58,7 +57,6 @@ int get_res(char *str, int i, int *error, int sign)
 	return (res);
 }
 
-// The main function that Mimic the libc atoi
 int ft_atoi(char *str, int *error)
 {
 	int i;

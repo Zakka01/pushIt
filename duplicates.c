@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_dup.c                                       :+:      :+:    :+:   */
+/*   duplicates.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:03:41 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/07 21:25:01 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:45:24 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// check if there is a duplicated numbers
 int check_dup(n_list *a_head)
 {
     n_list *this_num;

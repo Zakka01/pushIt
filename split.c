@@ -6,19 +6,17 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:05:53 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/13 19:15:55 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:45:59 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// detect spaces
 int is_space(char c)
 {
     return (c == 32 || (c >= 9 && c <= 13));
 }
 
-// count how many words on that string
 int count_words(char *s)
 {
     int i = 0;
@@ -32,7 +30,6 @@ int count_words(char *s)
     return (count);
 }
 
-// free heap to prevent memory leaks
 void	free_all_space(char **arr)
 {
     int j;
@@ -46,7 +43,6 @@ void	free_all_space(char **arr)
 	free(arr);
 }
 
-// fill the Arr each time we fill a word
 int fill_words(char *s, char **arr, int len)
 {
     int i = 0;
@@ -62,23 +58,19 @@ int fill_words(char *s, char **arr, int len)
         end = start;
         while (s[end] && !is_space(s[end]))
             end++;
-
         word = malloc(end - start + 1);
         if (!word)
             return (0);
-
         j = 0;
         while (start < end)
             word[j++] = s[start++];
         word[j] = '\0';
-
         arr[i] = word;
         i++;
     }
     return (1);
 }
 
-// This is the main functions, does everything and *return the Arr*  
 char **ft_split(char *str)
 {
     char **arr = NULL;
