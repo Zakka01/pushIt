@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 20:54:57 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 15:23:16 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:14:05 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	nl_found(char *buffer)
     int i;
 
     i = 0;
+	if (!buffer)
+		return (0);
     while (buffer[i])
     {
         if (buffer[i] == '\n')

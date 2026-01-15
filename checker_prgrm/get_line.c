@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:32:14 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 17:19:45 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:12:43 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,6 @@ char    *get_line(int fd)
 		save = NULL;
 		return (NULL);
 	}
+	free(buffer);
 	return (line);
 }

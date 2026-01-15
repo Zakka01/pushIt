@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:46:44 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 18:26:00 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:17:18 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int is_move(char *str1, char *str2)
             return (0);
         i++;
     }
-    return (1);
+    return (str1[i] == '\0' && str2[i] == '\0');
 }
 
 int validate_line(char *line)

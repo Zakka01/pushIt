@@ -6,13 +6,13 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:24:07 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 18:22:41 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:23:28 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void    swap(n_list **h_stack)
+void    swap(n_list **h_stack, char w_stack)
 {
     n_list *first;
     n_list *second;
@@ -25,15 +25,21 @@ void    swap(n_list **h_stack)
     second->next = first;
     first->next = third;
     *h_stack = second;
+
+    if (w_stack == 'a')
+        write(1, "sa\n", 3);
+    if (w_stack == 'b')
+        write(1, "sb\n", 3);
 }
 
 void    swap_both(n_list **a_stack, n_list **b_stack)
 {
-    swap(a_stack);
-    swap(b_stack);
+    swap(a_stack, 'a');
+    swap(b_stack, 'b');
+    write(1, "ss\n", 3);
 }
 
-void    push(n_list **src_stack, n_list **dst_stack)
+void    push(n_list **src_stack, n_list **dst_stack, char w_stack)
 {
     n_list *src_head;
     n_list *dst_head;
@@ -46,27 +52,37 @@ void    push(n_list **src_stack, n_list **dst_stack)
     *src_stack = src_head->next;
     src_head->next = dst_head;
     *dst_stack = src_head;
+    if (w_stack == 'a')
+        write(1, "pa\n", 3);
+    if (w_stack == 'b')
+        write(1, "pb\n", 3);
 }
 
-void    rotate(n_list **h_stack)
+void    rotate(n_list **h_stack, char w_stack)
 {
     n_list *head;
 
-    head = *h_stack;
-    if (!head || !head || !head->next)
+    if (!h_stack || !*h_stack || !(*h_stack)->next)
         return;
+    head = *h_stack;
     *h_stack = head->next;
     head->next = NULL;
     add_to_back(h_stack, head);
+
+    if (w_stack == 'a')
+        write(1, "ra\n", 3);
+    if (w_stack == 'b')
+        write(1, "rb\n", 3);
 }
 
 void    rotate_both(n_list **a_stack, n_list **b_stack)
 {
-    rotate(a_stack);
-    rotate(b_stack);
+    rotate(a_stack, 'a');
+    rotate(b_stack, 'b');
+    write(1, "rr\n", 3);
 }
 
-void    rev_rotate(n_list **h_stack)
+void    rev_rotate(n_list **h_stack, char w_stack)
 {   
     n_list *current;
     n_list *prev;
@@ -81,10 +97,15 @@ void    rev_rotate(n_list **h_stack)
     }
     prev->next = NULL;
     add_to_front(h_stack, current);
+    if (w_stack == 'a')
+        write(1, "rra\n", 4);
+    if (w_stack == 'b')
+        write(1, "rrb\n", 4);
 }
 
-void    rev_rotate_both(n_list **a_stack, n_list **b_stack)
+void    rev_rotate_both(n_list  **a_stack, n_list   **b_stack)
 {
-    rev_rotate(a_stack);
-    rev_rotate(b_stack);
+    rev_rotate(a_stack, 'a');
+    rev_rotate(b_stack, 'b');
+    write(1, "rrr\n", 4);
 }
