@@ -1,13 +1,10 @@
 NAME = push_swap
 
-# FLAGS = -Wall -Wextra -Werror
-FLAGS = -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 
 SRC := $(wildcard *.c)
 
 OBJ = $(SRC:%.c=%.o)
-
-AR = ar rcs
 
 RM = rm -f
 
