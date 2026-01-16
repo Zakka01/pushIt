@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:12:19 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 20:24:07 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:56:42 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	free_all_space(char **arr);
 int     parse_create_list(char *arg, n_list **a_head);
 int     check_dup(n_list *a_head);
 // moves
-void    swap(n_list **h_stack, char w_stack);
+void    swap(n_list **h_stack);
 void    swap_both(n_list **a_stack, n_list **b_stack);
-void    push(n_list **src_stack, n_list **dst_stack, char w_stack);
-void    rotate(n_list **h_stack, char w_stack);
+void    push(n_list **src_stack, n_list **dst_stack);
+void    rotate(n_list **h_stack);
 void    rotate_both(n_list **a_stack, n_list **b_stack);
-void    rev_rotate(n_list **h_stack, char w_stack);
+void    rev_rotate(n_list **h_stack);
 void    rev_rotate_both(n_list  **a_stack, n_list   **b_stack);
 
 int     is_sorted(n_list    **a_stack);

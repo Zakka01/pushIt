@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:46:44 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 20:17:18 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:51:24 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int is_move(char *str1, char *str2)
 
 int validate_line(char *line)
 {
-    if ((is_move(line, "sa")) || (is_move(line, "sb")) || (is_move(line, "ss")))
+    if ((is_move(line, "sa\n")) || (is_move(line, "sb\n")) || (is_move(line, "ss\n")))
         return (1);
-    else if ((is_move(line, "pa")) || (is_move(line, "pb")))
+    else if ((is_move(line, "pa\n")) || (is_move(line, "pb\n")))
         return (1);
-    else if ((is_move(line, "ra")) || (is_move(line, "rb")) || (is_move(line, "rr")))
+    else if ((is_move(line, "ra\n")) || (is_move(line, "rb\n")) || (is_move(line, "rr\n")))
         return (1);
-    else if ((is_move(line, "rra")) || (is_move(line, "rrb")) || (is_move(line, "rrr")))
+    else if ((is_move(line, "rra\n")) || (is_move(line, "rrb\n")) || (is_move(line, "rrr\n")))
         return (1);
     else 
         return (0);

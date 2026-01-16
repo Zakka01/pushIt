@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:12:09 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/15 20:33:50 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:57:13 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,25 @@ void apply_valid_move(char *line, n_list **a_stack, n_list **b_stack)
     if (validate_line(line))
     {
         if (is_move(line, "sa\n"))
-            swap(a_stack, 'a');
+            swap(a_stack);
         else if (is_move(line, "sb\n"))
-            swap(b_stack, 'b');
+            swap(b_stack);
         else if (is_move(line, "ss\n"))
             swap_both(a_stack, b_stack);
         else if (is_move(line, "ra\n"))
-            rotate(a_stack, 'a');
+            rotate(a_stack);
         else if (is_move(line, "rb\n"))
-            rotate(b_stack, 'b');
+            rotate(b_stack);
         else if (is_move(line, "rr\n"))
             rotate_both(a_stack, b_stack);
         else if (is_move(line, "pa\n"))
-            push(b_stack, a_stack, 'a');
+            push(b_stack, a_stack);
         else if (is_move(line, "pb\n"))
-            push(a_stack, b_stack, 'b');
+            push(a_stack, b_stack);
         else if (is_move(line, "rra\n"))
-            rev_rotate(a_stack, 'a');
+            rev_rotate(a_stack);
         else if (is_move(line, "rrb\n"))
-            rev_rotate(b_stack, 'b');
+            rev_rotate(b_stack);
         else if (is_move(line, "rrr\n"))
             rev_rotate_both(a_stack, b_stack);
     }
