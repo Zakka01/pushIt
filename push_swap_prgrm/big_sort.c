@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:06:59 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/13 20:44:18 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:33:23 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int find_max_pos(n_list **b_stack)
 {
-    n_list *current;
-    int i;
-    int max_index;
-    int max_pos;
+    n_list  *current;
+    int     i;
+    int     max_index;
+    int     max_pos;
 
     if (!b_stack || !*b_stack)
         return (-1);
@@ -38,7 +38,8 @@ int find_max_pos(n_list **b_stack)
     return (max_pos);
 }
 
-void push_max_to_a(n_list **a_stack, n_list **b_stack)
+
+void    push_max_to_a(n_list **a_stack, n_list **b_stack)
 {
     int max_pos;
     int b_size;
@@ -71,7 +72,7 @@ void push_max_to_a(n_list **a_stack, n_list **b_stack)
     }
 }
 
-void chunks_sort(n_list **a_stack, n_list **b_stack, int size)
+void    chunks_sort(n_list **a_stack, n_list **b_stack, int size)
 {
     int min;
     int max;
