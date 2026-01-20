@@ -2,169 +2,193 @@
 
 ## 📌 Project Overview
 
-The idea is simple: you have two stacks called **Stack A** and **Stack B**.
+The idea is simple: you have two stacks called Stack A and Stack B.
 
-Stack A is given a random list of unorganized numbers.  
-Your goal is to sort Stack A in ascending order using a **limited set of operations** (called *actions*), while producing **as few operations as possible**.
+Stack A is given a random list of unorganized numbers.
+Your goal is to sort Stack A in ascending order using a limited set of operations (called actions),
+while producing as few operations as possible.
 
-> ⚠️ The challenge is not sorting itself, but doing it **efficiently**.
+The challenge is not sorting itself, but doing it efficiently.
 
----
+--------------------------------------------------------------------
 
 ## 🧠 Theory
 
-Before writing any algorithm for **push_swap**, we must understand **why efficiency matters**.
+Before writing any algorithm for push_swap, we must understand why efficiency matters.
 
-In this project, your program is **not judged by execution time**, but by the **number of operations** (`sa`, `pb`, `ra`, …) it prints.
+In this project, your program is not judged by execution time,
+but by the number of operations (sa, pb, ra, …) it prints.
 
-### That means:
+That means:
 
-- A fast algorithm with **many moves** is bad ❌  
-- A slower algorithm with **fewer moves** is good ✅  
+- A fast algorithm with many moves is bad
+- A slower algorithm with fewer moves is good
 
-This is where **algorithmic complexity** and **Big-O notation** come in.
+This is where algorithmic complexity and Big-O notation come in.
 
----
+--------------------------------------------------------------------
 
 ## 📈 Complexity & Big-O Notation
 
-**Complexity** describes how many **resources** an algorithm needs as the input size grows.
+Complexity describes how many resources an algorithm needs as the input size grows.
 
-In **push_swap**, we mainly care about **time complexity**, meaning:
+In push_swap, we mainly care about time complexity:
 
-> How many operations does the algorithm perform when the number of elements increases?
+How many operations does the algorithm perform when the number of elements increases?
 
-**Big-O notation** is a mathematical way to describe this complexity in the **worst case**.
+Big-O notation describes this complexity in the worst case.
 
-### Important points
+Important points:
 
-- Big O **does not describe the best case**
-- Big O **does not describe average cases**
-- Big O describes **how bad the algorithm can get at worst**
+- Big O does not describe the best case
+- Big O does not describe average cases
+- Big O describes how bad the algorithm can get at worst
 
-### Examples
+Examples:
 
-- `O(1)` → constant time (independent of input size)
-- `O(n)` → linear growth
-- `O(n²)` → quadratic growth (very expensive)
+- O(1)  -> constant time
+- O(n)  -> linear growth
+- O(n²) -> quadratic growth
 
----
+--------------------------------------------------------------------
 
 ## 🔁 Allowed Actions
 
-### Swap Actions
+Swap Actions:
+- sa  : swap first two elements of stack A
+- sb  : swap first two elements of stack B
+- ss  : sa and sb at the same time
 
-- **sa (swap a)**  
-  Swap the first 2 elements at the top of stack A.
+Push Actions:
+- pa  : push top of B to A
+- pb  : push top of A to B
 
-- **sb (swap b)**  
-  Swap the first 2 elements at the top of stack B.
+Rotate Actions:
+- ra  : rotate stack A up
+- rb  : rotate stack B up
+- rr  : ra and rb together
+- rra : reverse rotate stack A
+- rrb : reverse rotate stack B
+- rrr : rra and rrb together
 
-- **ss**  
-  Perform `sa` and `sb` at the same time.
-
----
-
-### Push Actions
-
-- **pa (push a)**  
-  Take the first element from stack B and put it on top of stack A.
-
-- **pb (push b)**  
-  Take the first element from stack A and put it on top of stack B.
-
----
-
-### Rotate Actions
-
-- **ra (rotate a)**  
-  Shift all elements of stack A up by 1.
-
-- **rb (rotate b)**  
-  Shift all elements of stack B up by 1.
-
-- **rr**  
-  Perform `ra` and `rb` at the same time.
-
-- **rra (reverse rotate a)**  
-  Shift all elements of stack A down by 1.
-
-- **rrb (reverse rotate b)**  
-  Shift all elements of stack B down by 1.
-
-- **rrr**  
-  Perform `rra` and `rrb` at the same time.
-
----
+--------------------------------------------------------------------
 
 ## 🔍 Push_swap & Big-O
 
-In **push_swap**:
+- Each operation (sa, pb, ra, …) is O(1)
+- Scanning a stack once is O(n)
+- Scanning inside a loop is O(n²)
 
-- Each operation (`sa`, `pb`, `ra`, …) is **O(1)**  
-  → they only move pointers, not the whole stack
+Goal:
+Avoid repeated full scans as much as possible.
 
-- Scanning a stack once is **O(n)**
-
-- Scanning a stack inside a loop over all elements is **O(n²)**
-
-### Goal
-
-> Avoid repeated full scans as much as possible.
-
----
+--------------------------------------------------------------------
 
 ## 🧩 Algorithm Strategy
 
-The algorithm used depends on the **number of elements** in Stack A.
+The algorithm depends on the number of elements:
 
-We handle **four main cases** differently:
+- 3 elements
+- 5 elements
+- 100 elements
+- 500 elements
 
-- **3 elements**
-- **5 elements**
-- **100 elements**
-- **500 elements**
+Small inputs use hardcoded logic.
+Large inputs use a scalable algorithm.
 
-Small inputs can be solved using **hardcoded logic**,  
-while large inputs require a **scalable algorithm**.
-
----
+--------------------------------------------------------------------
 
 ## 🏷️ Indexing (Key Concept)
 
-Before sorting large inputs, each value in Stack A is **indexed**:
+Each value is replaced by an index:
 
-- Smallest value → index `0`
-- Largest value → index `n - 1`
+- Smallest value -> index 0
+- Largest value  -> index n - 1
 
-### Why indexing?
+Why indexing?
 
 - Faster comparisons
-- No dependency on actual values
-- Enables working with **ranges**
+- No dependency on real values
+- Enables range-based logic
 
-**Indexing complexity:**  
-- One full traversal of the stack → **O(n)**
+Indexing complexity:
+O(n)
 
----
+--------------------------------------------------------------------
 
 ## 📦 Range / Chunk Algorithm (100 & 500)
 
-For large inputs, the most efficient approach is the **range (chunk) algorithm**.
+Core idea:
 
-### Core Idea
+1. Split values into chunks
+2. Push chunks from A to B
+3. Push elements back from B to A in sorted order
 
-Instead of pushing elements one by one, we:
+--------------------------------------------------------------------
 
-1. Split values into **ranges (chunks)**
-2. Push elements chunk by chunk from **A → B**
-3. Push them back from **B → A** in sorted order
-
----
-
-### Chunk Size
+## 📐 Chunk Size
 
 Chunk size is calculated dynamically:
 
-```c
-chunk_size = size * 0.05 + 10;
+chunk_size = size * 0.05 + 10
+
+Explanation:
+
+- size * 0.05 takes 5% of the stack
+- +10 guarantees a minimum chunk size
+
+This reduces rotations and useless moves.
+It improves performance in practice but does NOT change Big-O.
+
+--------------------------------------------------------------------
+
+## 🚚 Step 1: Push Chunks from A → B
+
+- Loop through stack A
+- If index is inside the current range -> pb
+- Rotate intelligently
+- Expand the range progressively
+
+Each element:
+- Handled once
+- Uses O(1) operations
+
+Complexity:
+O(n)
+
+--------------------------------------------------------------------
+
+## 🔄 Step 2: Push Max from B → A
+
+- Find the maximum index in stack B
+- Rotate B until max is on top
+- Push it back to A
+- Repeat until B is empty
+
+Worst case:
+- Finding max is O(n)
+- Done for n elements
+
+Complexity:
+O(n²)
+
+--------------------------------------------------------------------
+
+## ⚠️ Worst Case of the Range Algorithm
+
+The worst case happens during the B → A phase when:
+
+- The maximum element is far from the top
+- Stack B is scanned and rotated many times
+
+Even with chunking, the algorithm still has:
+
+Worst-case time complexity: O(n²)
+
+--------------------------------------------------------------------
+
+## ✅ Conclusion
+
+Even though the range algorithm has a worst-case complexity of O(n²),
+indexing and chunking drastically reduce the number of operations in practice,
+making it efficient for large inputs.
