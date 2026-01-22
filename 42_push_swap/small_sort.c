@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:03:51 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/22 18:15:08 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/22 18:27:35 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,25 @@ void	size_of_three(t_list **a_stack)
 	}
 }
 
+void	bring_min_to_top(t_list **a_stack, int index)
+{
+	int		a_size;
+	int		times;
+
+	a_size = list_size(*a_stack);
+	if (index <= a_size / 2)
+	{
+		while (index-- > 0)
+			rotate(a_stack, 'a');
+	}
+	else
+	{
+		times = a_size - index;
+		while (times-- > 0)
+			rev_rotate(a_stack, 'a');
+	}
+}
+
 void	find_push_min(t_list **a_stack, t_list **b_stack)
 {
 	t_list	*currect;
@@ -52,9 +71,7 @@ void	find_push_min(t_list **a_stack, t_list **b_stack)
 	int		min;
 	int		index;
 	int		times;
-	int		a_size;
 
-	a_size = list_size(*a_stack);
 	currect = *a_stack;
 	i = 0;
 	index = 0;
@@ -69,17 +86,7 @@ void	find_push_min(t_list **a_stack, t_list **b_stack)
 		currect = currect->next;
 		i++;
 	}
-	if (index <= a_size / 2)
-	{
-		while (index-- > 0)
-			rotate(a_stack, 'a');
-	}
-	else
-	{
-		times = a_size - index;
-		while (times-- > 0)
-			rev_rotate(a_stack, 'a');
-	}
+	bring_min_to_top(a_stack, index);
 	if (!is_sorted(a_stack))
 		push(a_stack, b_stack, 'b');
 }
@@ -97,21 +104,4 @@ void	size_of_f(t_list **a_stack, t_list **b_stack, int size)
 	size_of_three(a_stack);
 	while (*b_stack)
 		push(b_stack, a_stack, 'a');
-}
-
-void	handle_list_size(t_list **a_stack, t_list **b_stack)
-{
-	int	size;
-
-	size = list_size(*a_stack);
-	if (size == 1)
-		return ;
-	else if (size == 2)
-		size_of_two(a_stack);
-	else if (size == 3)
-		size_of_three(a_stack);
-	else if ((size == 4 || size == 5) && !is_sorted(a_stack))
-		size_of_f(a_stack, b_stack, size);
-	else if (size > 5 && !is_sorted(a_stack))
-		chunks_sort(a_stack, b_stack, size);
 }

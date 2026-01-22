@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:01:09 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/17 21:51:04 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/22 18:23:54 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -41,6 +40,7 @@ void				rotate(t_list **h_stack, char w_stack);
 void				rotate_both(t_list **a_stack, t_list **b_stack);
 void				rev_rotate(t_list **h_stack, char w_stack);
 void				rev_rotate_both(t_list **a_stack, t_list **b_stack);
+void				handle_list_size(t_list **a_stack, t_list **b_stack);
 void				handle_list_size(t_list **a_stack, t_list **b_stack);
 int					is_sorted(t_list **a_stack);
 void				index_nodes(t_list **a_stack, int size);
