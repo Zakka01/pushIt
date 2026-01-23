@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:03:51 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/22 18:27:35 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:08:58 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	find_push_min(t_list **a_stack, t_list **b_stack)
 	int		i;
 	int		min;
 	int		index;
-	int		times;
 
 	currect = *a_stack;
 	i = 0;
