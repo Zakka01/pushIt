@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:06:02 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/17 23:53:37 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/24 15:56:48 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	main(int ac, char **av)
 		while (ac > i)
 		{
 			if (!parse_create_list(av[i], &a_head))
-				return (write(1, "Error\n", 6), free_stack(&a_head), 0);
+				return (write(2, "Error\n", 6), free_stack(&a_head), 0);
 			i++;
 		}
 		if (!check_dup(a_head))
-			return (write(1, "Error\n", 6), free_stack(&a_head), 0);
+			return (write(2, "Error\n", 6), free_stack(&a_head), 0);
 		handle_list_size(&a_head, &b_head);
 	}
 	free_stack(&a_head);
