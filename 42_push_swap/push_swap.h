@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 18:01:09 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/23 19:08:49 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/24 17:31:52 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,8 @@ void				handle_list_size(t_list **a_stack, t_list **b_stack);
 int					is_sorted(t_list **a_stack);
 void				index_nodes(t_list **a_stack, int size);
 void				chunks_sort(t_list **a_stack, t_list **b_stack, int size);
-
 void				size_of_two(t_list **a_stack);
 void				size_of_three(t_list **a_stack);
 void				size_of_f(t_list **a_stack, t_list **b_stack, int size);
-
-
 
 #endif
