@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:06:02 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/24 21:15:54 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/25 11:49:42 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 	int		i;
 	t_list	*a_head;
 	t_list	*b_head;
+
 	a_head = NULL;
 	b_head = NULL;
 	if (ac >= 2)
