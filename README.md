@@ -1,9 +1,9 @@
-*This project has been created as part of the 42 curriculum by zahrabar*
+*This project has been created by Zakka01*
 
 
 ## Description
 
-Push_swap is a sorting project where you must order numbers using two stacks and a limited set of operations, aiming to minimize the number of moves.
+PushIt is a sorting project where you must order numbers using two stacks and a limited set of operations, aiming to minimize the number of moves.
 Efficiency matters because the program is graded by how few operations it produces, not by execution time.
 
 
