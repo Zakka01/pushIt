@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:32:14 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/27 20:43:03 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:35:22 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,18 +127,10 @@ char	*get_line(int fd)
 		return (NULL);
 	save = read_join(buffer, save, fd);
 	if (!save || !save[0])
-	{
-		free(save);
-		save = NULL;
-		return (NULL);
-	}
+		return (free(save), save = NULL, free(buffer), NULL);
 	line = ex_line(&save);
 	if (!line)
-	{
-		free(save);
-		save = NULL;
-		return (NULL);
-	}
+		return (free(save), save = NULL, free(buffer), NULL);
 	free(buffer);
 	return (line);
 }

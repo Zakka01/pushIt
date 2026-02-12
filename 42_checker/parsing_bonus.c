@@ -6,7 +6,7 @@
 /*   By: zahrabar <zahrabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:25:29 by zahrabar          #+#    #+#             */
-/*   Updated: 2026/01/27 20:46:37 by zahrabar         ###   ########.fr       */
+/*   Updated: 2026/01/27 21:22:59 by zahrabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	parse_create_list(char *arg, t_list **a_head)
 
 	numbers = ft_split(arg);
 	if (!numbers || !numbers[0])
-		return (0);
+		return (free_all_space(numbers), 0);
 	j = 0;
 	while (numbers[j])
 	{
